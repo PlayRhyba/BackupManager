@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		117B51581D99A90500BA15C7 /* BMMulticastSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 117B51571D99A90500BA15C7 /* BMMulticastSender.m */; };
+		117B515C1D99AA0A00BA15C7 /* BMAdvertiser.m in Sources */ = {isa = PBXBuildFile; fileRef = 117B515B1D99AA0A00BA15C7 /* BMAdvertiser.m */; };
+		117B515F1D99AA7200BA15C7 /* BMCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 117B515E1D99AA7200BA15C7 /* BMCommand.m */; };
+		117B51621D99ABD100BA15C7 /* MCSession+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 117B51611D99ABD100BA15C7 /* MCSession+Utilities.m */; };
 		74149136DB3D8DD93D21B44B /* libPods-BackupManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE1F86D2E6B1E9D5F0F8E1E /* libPods-BackupManager.a */; };
 		C7DE7BC91D994FD5000F68CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DE7BC81D994FD5000F68CA /* main.m */; };
 		C7DE7BCC1D994FD5000F68CA /* BMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DE7BCB1D994FD5000F68CA /* BMAppDelegate.m */; };
@@ -23,6 +27,14 @@
 
 /* Begin PBXFileReference section */
 		0DA02BABF6495BB95845DDD8 /* Pods-BackupManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackupManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BackupManager/Pods-BackupManager.debug.xcconfig"; sourceTree = "<group>"; };
+		117B51561D99A90500BA15C7 /* BMMulticastSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMMulticastSender.h; sourceTree = "<group>"; };
+		117B51571D99A90500BA15C7 /* BMMulticastSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMMulticastSender.m; sourceTree = "<group>"; };
+		117B515A1D99AA0A00BA15C7 /* BMAdvertiser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAdvertiser.h; sourceTree = "<group>"; };
+		117B515B1D99AA0A00BA15C7 /* BMAdvertiser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAdvertiser.m; sourceTree = "<group>"; };
+		117B515D1D99AA7200BA15C7 /* BMCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMCommand.h; sourceTree = "<group>"; };
+		117B515E1D99AA7200BA15C7 /* BMCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMCommand.m; sourceTree = "<group>"; };
+		117B51601D99ABD100BA15C7 /* MCSession+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MCSession+Utilities.h"; sourceTree = "<group>"; };
+		117B51611D99ABD100BA15C7 /* MCSession+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MCSession+Utilities.m"; sourceTree = "<group>"; };
 		4EDE07FA5BB5BF9230C50A64 /* Pods-BackupManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackupManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-BackupManager/Pods-BackupManager.release.xcconfig"; sourceTree = "<group>"; };
 		BBE1F86D2E6B1E9D5F0F8E1E /* libPods-BackupManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BackupManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DE7BC41D994FD5000F68CA /* BackupManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BackupManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +70,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		117B51541D99A8F000BA15C7 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				117B51551D99A8F000BA15C7 /* Categories */,
+				117B51561D99A90500BA15C7 /* BMMulticastSender.h */,
+				117B51571D99A90500BA15C7 /* BMMulticastSender.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		117B51551D99A8F000BA15C7 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				117B51601D99ABD100BA15C7 /* MCSession+Utilities.h */,
+				117B51611D99ABD100BA15C7 /* MCSession+Utilities.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		117B51591D99A9F800BA15C7 /* BMAdvertiser */ = {
+			isa = PBXGroup;
+			children = (
+				117B515A1D99AA0A00BA15C7 /* BMAdvertiser.h */,
+				117B515B1D99AA0A00BA15C7 /* BMAdvertiser.m */,
+				117B515D1D99AA7200BA15C7 /* BMCommand.h */,
+				117B515E1D99AA7200BA15C7 /* BMCommand.m */,
+			);
+			path = BMAdvertiser;
+			sourceTree = "<group>";
+		};
 		12BA1BF04E1EAB06C403A808 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,7 +130,7 @@
 		C7DE7BC61D994FD5000F68CA /* BackupManager */ = {
 			isa = PBXGroup;
 			children = (
-				C7DE7C001D99689A000F68CA /* Common */,
+				117B51541D99A8F000BA15C7 /* Common */,
 				C7DE7BEA1D995769000F68CA /* Models */,
 				C7DE7BE11D9956CA000F68CA /* UI */,
 				C7DE7BE91D995727000F68CA /* Managers */,
@@ -133,6 +175,7 @@
 		C7DE7BE91D995727000F68CA /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				117B51591D99A9F800BA15C7 /* BMAdvertiser */,
 				C7DE7BFC1D99605A000F68CA /* BMBackupStorage */,
 			);
 			path = Managers;
@@ -157,21 +200,6 @@
 				C7DE7BFE1D996073000F68CA /* BMBackupStorage.m */,
 			);
 			path = BMBackupStorage;
-			sourceTree = "<group>";
-		};
-		C7DE7C001D99689A000F68CA /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				C7DE7C011D99689A000F68CA /* Categories */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		C7DE7C011D99689A000F68CA /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Categories;
 			sourceTree = "<group>";
 		};
 		FEDB5F5FE431398D73AFB9B3 /* Frameworks */ = {
@@ -306,10 +334,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				117B51581D99A90500BA15C7 /* BMMulticastSender.m in Sources */,
 				C7DE7BE71D9956CA000F68CA /* BMBackupsViewController.m in Sources */,
 				C7DE7BF91D995BB3000F68CA /* BMBackup+CoreDataProperties.m in Sources */,
+				117B51621D99ABD100BA15C7 /* MCSession+Utilities.m in Sources */,
 				C7DE7BCC1D994FD5000F68CA /* BMAppDelegate.m in Sources */,
 				C7DE7BF81D995BB3000F68CA /* BMBackup+CoreDataClass.m in Sources */,
+				117B515C1D99AA0A00BA15C7 /* BMAdvertiser.m in Sources */,
+				117B515F1D99AA7200BA15C7 /* BMCommand.m in Sources */,
 				C7DE7BE81D9956CA000F68CA /* BMServerViewController.m in Sources */,
 				C7DE7BC91D994FD5000F68CA /* main.m in Sources */,
 				C7DE7BFF1D996073000F68CA /* BMBackupStorage.m in Sources */,
@@ -436,6 +468,7 @@
 			baseConfigurationReference = 0DA02BABF6495BB95845DDD8 /* Pods-BackupManager.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				DEVELOPMENT_TEAM = 6P279T7467;
 				INFOPLIST_FILE = BackupManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -451,6 +484,7 @@
 			baseConfigurationReference = 4EDE07FA5BB5BF9230C50A64 /* Pods-BackupManager.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 6P279T7467;
 				INFOPLIST_FILE = BackupManager/Info.plist;
