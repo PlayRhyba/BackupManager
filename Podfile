@@ -1,0 +1,3 @@
+target 'BackupManager'
+
+pod "MagicalRecord"

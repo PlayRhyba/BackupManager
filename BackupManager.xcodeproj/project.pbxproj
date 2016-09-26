@@ -1,0 +1,502 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		74149136DB3D8DD93D21B44B /* libPods-BackupManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE1F86D2E6B1E9D5F0F8E1E /* libPods-BackupManager.a */; };
+		C7DE7BC91D994FD5000F68CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DE7BC81D994FD5000F68CA /* main.m */; };
+		C7DE7BCC1D994FD5000F68CA /* BMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DE7BCB1D994FD5000F68CA /* BMAppDelegate.m */; };
+		C7DE7BD51D994FD5000F68CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DE7BD31D994FD5000F68CA /* Main.storyboard */; };
+		C7DE7BD71D994FD5000F68CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7DE7BD61D994FD5000F68CA /* Assets.xcassets */; };
+		C7DE7BDA1D994FD5000F68CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DE7BD81D994FD5000F68CA /* LaunchScreen.storyboard */; };
+		C7DE7BE71D9956CA000F68CA /* BMBackupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DE7BE41D9956CA000F68CA /* BMBackupsViewController.m */; };
+		C7DE7BE81D9956CA000F68CA /* BMServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DE7BE61D9956CA000F68CA /* BMServerViewController.m */; };
+		C7DE7BED1D995820000F68CA /* Backup.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C7DE7BEB1D995820000F68CA /* Backup.xcdatamodeld */; };
+		C7DE7BF81D995BB3000F68CA /* BMBackup+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DE7BF51D995BB3000F68CA /* BMBackup+CoreDataClass.m */; };
+		C7DE7BF91D995BB3000F68CA /* BMBackup+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DE7BF71D995BB3000F68CA /* BMBackup+CoreDataProperties.m */; };
+		C7DE7BFF1D996073000F68CA /* BMBackupStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DE7BFE1D996073000F68CA /* BMBackupStorage.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0DA02BABF6495BB95845DDD8 /* Pods-BackupManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackupManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BackupManager/Pods-BackupManager.debug.xcconfig"; sourceTree = "<group>"; };
+		4EDE07FA5BB5BF9230C50A64 /* Pods-BackupManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackupManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-BackupManager/Pods-BackupManager.release.xcconfig"; sourceTree = "<group>"; };
+		BBE1F86D2E6B1E9D5F0F8E1E /* libPods-BackupManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BackupManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7DE7BC41D994FD5000F68CA /* BackupManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BackupManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7DE7BC81D994FD5000F68CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C7DE7BCA1D994FD5000F68CA /* BMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMAppDelegate.h; sourceTree = "<group>"; };
+		C7DE7BCB1D994FD5000F68CA /* BMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMAppDelegate.m; sourceTree = "<group>"; };
+		C7DE7BD41D994FD5000F68CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C7DE7BD61D994FD5000F68CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C7DE7BD91D994FD5000F68CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C7DE7BDB1D994FD5000F68CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7DE7BE31D9956CA000F68CA /* BMBackupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMBackupsViewController.h; sourceTree = "<group>"; };
+		C7DE7BE41D9956CA000F68CA /* BMBackupsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMBackupsViewController.m; sourceTree = "<group>"; };
+		C7DE7BE51D9956CA000F68CA /* BMServerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMServerViewController.h; sourceTree = "<group>"; };
+		C7DE7BE61D9956CA000F68CA /* BMServerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMServerViewController.m; sourceTree = "<group>"; };
+		C7DE7BEC1D995820000F68CA /* Backup.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Backup.xcdatamodel; sourceTree = "<group>"; };
+		C7DE7BF41D995BB3000F68CA /* BMBackup+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMBackup+CoreDataClass.h"; sourceTree = "<group>"; };
+		C7DE7BF51D995BB3000F68CA /* BMBackup+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMBackup+CoreDataClass.m"; sourceTree = "<group>"; };
+		C7DE7BF61D995BB3000F68CA /* BMBackup+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMBackup+CoreDataProperties.h"; sourceTree = "<group>"; };
+		C7DE7BF71D995BB3000F68CA /* BMBackup+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMBackup+CoreDataProperties.m"; sourceTree = "<group>"; };
+		C7DE7BFD1D996073000F68CA /* BMBackupStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMBackupStorage.h; sourceTree = "<group>"; };
+		C7DE7BFE1D996073000F68CA /* BMBackupStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMBackupStorage.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C7DE7BC11D994FD5000F68CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74149136DB3D8DD93D21B44B /* libPods-BackupManager.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		12BA1BF04E1EAB06C403A808 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0DA02BABF6495BB95845DDD8 /* Pods-BackupManager.debug.xcconfig */,
+				4EDE07FA5BB5BF9230C50A64 /* Pods-BackupManager.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C7DE7BBB1D994FD5000F68CA = {
+			isa = PBXGroup;
+			children = (
+				C7DE7BC61D994FD5000F68CA /* BackupManager */,
+				C7DE7BC51D994FD5000F68CA /* Products */,
+				12BA1BF04E1EAB06C403A808 /* Pods */,
+				FEDB5F5FE431398D73AFB9B3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C7DE7BC51D994FD5000F68CA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C7DE7BC41D994FD5000F68CA /* BackupManager.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C7DE7BC61D994FD5000F68CA /* BackupManager */ = {
+			isa = PBXGroup;
+			children = (
+				C7DE7C001D99689A000F68CA /* Common */,
+				C7DE7BEA1D995769000F68CA /* Models */,
+				C7DE7BE11D9956CA000F68CA /* UI */,
+				C7DE7BE91D995727000F68CA /* Managers */,
+				C7DE7BCA1D994FD5000F68CA /* BMAppDelegate.h */,
+				C7DE7BCB1D994FD5000F68CA /* BMAppDelegate.m */,
+				C7DE7BD31D994FD5000F68CA /* Main.storyboard */,
+				C7DE7BD61D994FD5000F68CA /* Assets.xcassets */,
+				C7DE7BD81D994FD5000F68CA /* LaunchScreen.storyboard */,
+				C7DE7BDB1D994FD5000F68CA /* Info.plist */,
+				C7DE7BC71D994FD5000F68CA /* Supporting Files */,
+			);
+			path = BackupManager;
+			sourceTree = "<group>";
+		};
+		C7DE7BC71D994FD5000F68CA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C7DE7BC81D994FD5000F68CA /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C7DE7BE11D9956CA000F68CA /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				C7DE7BE21D9956CA000F68CA /* ViewControllers */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		C7DE7BE21D9956CA000F68CA /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C7DE7BE31D9956CA000F68CA /* BMBackupsViewController.h */,
+				C7DE7BE41D9956CA000F68CA /* BMBackupsViewController.m */,
+				C7DE7BE51D9956CA000F68CA /* BMServerViewController.h */,
+				C7DE7BE61D9956CA000F68CA /* BMServerViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C7DE7BE91D995727000F68CA /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				C7DE7BFC1D99605A000F68CA /* BMBackupStorage */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		C7DE7BEA1D995769000F68CA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C7DE7BEB1D995820000F68CA /* Backup.xcdatamodeld */,
+				C7DE7BF41D995BB3000F68CA /* BMBackup+CoreDataClass.h */,
+				C7DE7BF51D995BB3000F68CA /* BMBackup+CoreDataClass.m */,
+				C7DE7BF61D995BB3000F68CA /* BMBackup+CoreDataProperties.h */,
+				C7DE7BF71D995BB3000F68CA /* BMBackup+CoreDataProperties.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C7DE7BFC1D99605A000F68CA /* BMBackupStorage */ = {
+			isa = PBXGroup;
+			children = (
+				C7DE7BFD1D996073000F68CA /* BMBackupStorage.h */,
+				C7DE7BFE1D996073000F68CA /* BMBackupStorage.m */,
+			);
+			path = BMBackupStorage;
+			sourceTree = "<group>";
+		};
+		C7DE7C001D99689A000F68CA /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C7DE7C011D99689A000F68CA /* Categories */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		C7DE7C011D99689A000F68CA /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		FEDB5F5FE431398D73AFB9B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BBE1F86D2E6B1E9D5F0F8E1E /* libPods-BackupManager.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C7DE7BC31D994FD5000F68CA /* BackupManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7DE7BDE1D994FD5000F68CA /* Build configuration list for PBXNativeTarget "BackupManager" */;
+			buildPhases = (
+				65EFF7107579DF9D10F9BC50 /* [CP] Check Pods Manifest.lock */,
+				C7DE7BC01D994FD5000F68CA /* Sources */,
+				C7DE7BC11D994FD5000F68CA /* Frameworks */,
+				C7DE7BC21D994FD5000F68CA /* Resources */,
+				EF26DDB3B8146EAFF8D3563E /* [CP] Embed Pods Frameworks */,
+				6FC9E64BB122079D631251A4 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BackupManager;
+			productName = BackupManager;
+			productReference = C7DE7BC41D994FD5000F68CA /* BackupManager.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C7DE7BBC1D994FD5000F68CA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = BM;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Alexander Snigurskyi";
+				TargetAttributes = {
+					C7DE7BC31D994FD5000F68CA = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 6P279T7467;
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = C7DE7BBF1D994FD5000F68CA /* Build configuration list for PBXProject "BackupManager" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C7DE7BBB1D994FD5000F68CA;
+			productRefGroup = C7DE7BC51D994FD5000F68CA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C7DE7BC31D994FD5000F68CA /* BackupManager */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C7DE7BC21D994FD5000F68CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7DE7BDA1D994FD5000F68CA /* LaunchScreen.storyboard in Resources */,
+				C7DE7BD71D994FD5000F68CA /* Assets.xcassets in Resources */,
+				C7DE7BD51D994FD5000F68CA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		65EFF7107579DF9D10F9BC50 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6FC9E64BB122079D631251A4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BackupManager/Pods-BackupManager-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF26DDB3B8146EAFF8D3563E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BackupManager/Pods-BackupManager-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C7DE7BC01D994FD5000F68CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7DE7BE71D9956CA000F68CA /* BMBackupsViewController.m in Sources */,
+				C7DE7BF91D995BB3000F68CA /* BMBackup+CoreDataProperties.m in Sources */,
+				C7DE7BCC1D994FD5000F68CA /* BMAppDelegate.m in Sources */,
+				C7DE7BF81D995BB3000F68CA /* BMBackup+CoreDataClass.m in Sources */,
+				C7DE7BE81D9956CA000F68CA /* BMServerViewController.m in Sources */,
+				C7DE7BC91D994FD5000F68CA /* main.m in Sources */,
+				C7DE7BFF1D996073000F68CA /* BMBackupStorage.m in Sources */,
+				C7DE7BED1D995820000F68CA /* Backup.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C7DE7BD31D994FD5000F68CA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7DE7BD41D994FD5000F68CA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C7DE7BD81D994FD5000F68CA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7DE7BD91D994FD5000F68CA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C7DE7BDC1D994FD5000F68CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C7DE7BDD1D994FD5000F68CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C7DE7BDF1D994FD5000F68CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0DA02BABF6495BB95845DDD8 /* Pods-BackupManager.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6P279T7467;
+				INFOPLIST_FILE = BackupManager/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.metegrity.BackupManager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "a11b1def-dd60-4184-b8ea-f1cc7460c3e1";
+				PROVISIONING_PROFILE_SPECIFIER = BackupManagerDevelopment;
+			};
+			name = Debug;
+		};
+		C7DE7BE01D994FD5000F68CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4EDE07FA5BB5BF9230C50A64 /* Pods-BackupManager.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 6P279T7467;
+				INFOPLIST_FILE = BackupManager/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.metegrity.BackupManager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "72a53d5d-a0e0-4038-8952-b98f70c45adc";
+				PROVISIONING_PROFILE_SPECIFIER = BackupManagerDistribution;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C7DE7BBF1D994FD5000F68CA /* Build configuration list for PBXProject "BackupManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7DE7BDC1D994FD5000F68CA /* Debug */,
+				C7DE7BDD1D994FD5000F68CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7DE7BDE1D994FD5000F68CA /* Build configuration list for PBXNativeTarget "BackupManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7DE7BDF1D994FD5000F68CA /* Debug */,
+				C7DE7BE01D994FD5000F68CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C7DE7BEB1D995820000F68CA /* Backup.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C7DE7BEC1D995820000F68CA /* Backup.xcdatamodel */,
+			);
+			currentVersion = C7DE7BEC1D995820000F68CA /* Backup.xcdatamodel */;
+			path = Backup.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = C7DE7BBC1D994FD5000F68CA /* Project object */;
+}
