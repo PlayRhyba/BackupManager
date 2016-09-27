@@ -91,13 +91,9 @@
 
 + (void)removeBackup:(BMBackup *)backup error:(NSError *__autoreleasing *)error {
     if ([[NSFileManager defaultManager]removeItemAtPath:backup.path error:error]) {
-        
-        
-        //TODO: Save with block!!!
-        
-        
-        [backup MR_deleteEntity];
-        [[NSManagedObjectContext MR_defaultContext]MR_saveOnlySelfAndWait];
+        [MagicalRecord saveWithBlock:^(NSManagedObjectContext * _Nonnull localContext) {
+            [backup MR_deleteEntityInContext:localContext];
+        }];
     }
 }
 
