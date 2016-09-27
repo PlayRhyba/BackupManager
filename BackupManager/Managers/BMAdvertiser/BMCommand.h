@@ -14,6 +14,9 @@ extern NSString * const BMCommandError;
 extern NSString * const BMCommandSuccess;
 
 
+@class BMBackup;
+
+
 @interface BMCommand : NSObject
 
 @property (nonatomic, strong) NSString *name;
@@ -22,6 +25,7 @@ extern NSString * const BMCommandSuccess;
 
 + (instancetype)errorCommandWithError:(NSError *)error;
 + (instancetype)successCommandWithMessage:(NSString *)message;
++ (instancetype)backupsListResponseCommandWithBackups:(NSArray <BMBackup *> *)backups;
 
 - (instancetype)initWithName:(NSString *)name
                         from:(NSString *)from

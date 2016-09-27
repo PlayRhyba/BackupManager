@@ -12,10 +12,10 @@
 
 @interface BMBackupStorage : NSObject
 
-+ (BMBackup *)createBackupWithURL:(NSURL *)localURL
-                     resourceName:(NSString *)resourceName
-                             user:(NSString *)user
-                            error:(NSError *__autoreleasing *)error;
++ (void)createBackupWithURL:(NSURL *)localURL
+               resourceName:(NSString *)resourceName
+                       user:(NSString *)user
+                      error:(NSError *__autoreleasing *)error;
 
 + (void)removeBackup:(BMBackup *)backup
                error:(NSError *__autoreleasing *)error;

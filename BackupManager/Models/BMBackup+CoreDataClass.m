@@ -2,12 +2,19 @@
 //  BMBackup+CoreDataClass.m
 //  BackupManager
 //
-//  Created by Alexander Snigurskyi on 2016-09-26.
-//  Copyright © 2016 Alexander Snigurskyi. All rights reserved.
-//
+
 
 #import "BMBackup+CoreDataClass.h"
+#import "NSDate+Additions.h"
 
 @implementation BMBackup
+
+- (NSDictionary *)dictionary {
+    return @{NSStringFromSelector(@selector(uuid)): self.uuid ?: @"",
+             NSStringFromSelector(@selector(name)): self.name ?: @"",
+             NSStringFromSelector(@selector(path)): self.path ?: @"",
+             NSStringFromSelector(@selector(date)): self.date ? [self.date string] : @"",
+             NSStringFromSelector(@selector(user)): self.user ?: @""};
+}
 
 @end

@@ -10,9 +10,10 @@
 @implementation MCSession (Utilities)
 
 
-+ (MCSession *)sessionWithDelegate:(id<MCSessionDelegate>)delegate  {
-    NSString *deviceName = [UIDevice currentDevice].name;
-    MCPeerID *peerID = [[MCPeerID alloc]initWithDisplayName:deviceName];
++ (MCSession *)sessionWithDelegate:(id<MCSessionDelegate>)delegate
+                       displayName:(NSString *)displayName {
+    displayName = displayName ?: [UIDevice currentDevice].name;
+    MCPeerID *peerID = [[MCPeerID alloc]initWithDisplayName:displayName];
     MCSession *session = [[MCSession alloc]initWithPeer:peerID];
     session.delegate = delegate;
     
@@ -25,15 +26,6 @@
         case MCSessionStateConnected: return @"CONNECTED";
         case MCSessionStateConnecting: return @"CONNECTING";
         case MCSessionStateNotConnected: return @"DISCONNECTED";
-    }
-}
-
-
-+ (UIColor *)colorWithSessionState:(MCSessionState)state {
-    switch (state) {
-        case MCSessionStateConnected: return [UIColor greenColor];
-        case MCSessionStateConnecting: return [UIColor yellowColor];
-        case MCSessionStateNotConnected: return [UIColor clearColor];
     }
 }
 

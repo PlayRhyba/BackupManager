@@ -42,49 +42,60 @@
 #pragma mark - Public Methods
 
 
-+ (BMBackup *)createBackupWithURL:(NSURL *)localURL
-                     resourceName:(NSString *)resourceName
-                             user:(NSString *)user
-                            error:(NSError *__autoreleasing *)error {
-    NSFileManager *defaultManager = [NSFileManager defaultManager];
++ (void)createBackupWithURL:(NSURL *)localURL
+               resourceName:(NSString *)resourceName
+                       user:(NSString *)user
+                      error:(NSError *__autoreleasing *)error {
+    NSError *c_error = nil;
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
     
     NSString *userDirectoryPath = [[self backupsDirectoryPath]stringByAppendingPathComponent:user];
     
-    if ([defaultManager fileExistsAtPath:userDirectoryPath isDirectory:nil] == NO) {
-        [defaultManager createDirectoryAtPath:userDirectoryPath
-                  withIntermediateDirectories:YES
-                                   attributes:nil
-                                        error:error];
+    if ([fileManager fileExistsAtPath:userDirectoryPath] == NO) {
+        [fileManager createDirectoryAtPath:userDirectoryPath
+               withIntermediateDirectories:YES
+                                attributes:nil
+                                     error:&c_error];
     }
     
-    if (error) {
-        return nil;
+    if (c_error) {
+        if (error) *error = c_error;
+        return;
     }
     
     NSString *filePath = [userDirectoryPath stringByAppendingPathComponent:resourceName];
     
-    [defaultManager copyItemAtURL:localURL
-                            toURL:[NSURL fileURLWithPath:filePath]
-                            error:error];
-    if (error) {
-        return nil;
+    if ([fileManager fileExistsAtPath:filePath]) {
+        [fileManager removeItemAtPath:filePath error:nil];
     }
     
-    BMBackup *backup = [BMBackup MR_createEntity];
-    backup.uuid = [[NSUUID UUID]UUIDString];
-    backup.name = resourceName;
-    backup.path = filePath;
-    backup.date = [NSDate date];
-    backup.user = user;
+    [fileManager copyItemAtURL:localURL
+                         toURL:[NSURL fileURLWithPath:filePath]
+                         error:&c_error];
+    if (c_error) {
+        if (error) *error = c_error;
+        return;
+    }
     
-    [[NSManagedObjectContext MR_defaultContext]MR_saveOnlySelfAndWait];
-    
-    return backup;
+    [MagicalRecord saveWithBlock:^(NSManagedObjectContext * _Nonnull localContext) {
+        BMBackup *backup = [BMBackup MR_createEntityInContext:localContext];
+        backup.uuid = [[NSUUID UUID]UUIDString];
+        backup.name = resourceName;
+        backup.path = filePath;
+        backup.date = [NSDate date];
+        backup.user = user;
+    }];
 }
 
 
 + (void)removeBackup:(BMBackup *)backup error:(NSError *__autoreleasing *)error {
     if ([[NSFileManager defaultManager]removeItemAtPath:backup.path error:error]) {
+        
+        
+        //TODO: Save with block!!!
+        
+        
         [backup MR_deleteEntity];
         [[NSManagedObjectContext MR_defaultContext]MR_saveOnlySelfAndWait];
     }
@@ -92,12 +103,12 @@
 
 
 + (NSArray <BMBackup *> *)backups {
-    return [BMBackup MR_findAllSortedBy:NSStringFromSelector(@selector(date)) ascending:YES];
+    return [BMBackup MR_findAllSortedBy:NSStringFromSelector(@selector(date)) ascending:NO];
 }
 
 
 + (NSArray <BMBackup *> *)backupsForUser:(NSString *)user {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%@ LIKE[cd] %@", NSStringFromSelector(@selector(user)), user];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K LIKE[cd] %@", NSStringFromSelector(@selector(user)), user];
     return [BMBackup MR_findAllWithPredicate:predicate];
 }
 

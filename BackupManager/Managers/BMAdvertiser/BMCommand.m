@@ -5,6 +5,8 @@
 
 
 #import "BMCommand.h"
+#import "BMBackup+CoreDataProperties.h"
+#import "BMConstants.h"
 
 
 NSString * const BMCommandBackupsListRequest = @"BMCommandBackupsListRequest";
@@ -13,8 +15,8 @@ NSString * const BMCommandRequestBackup = @"BMCommandRequestBackup";
 NSString * const BMCommandError = @"BMCommandError";
 NSString * const BMCommandSuccess = @"BMCommandSuccess";
 
-static NSString * const kServer = @"server";
 static NSString * const kMessage = @"message";
+static NSString * const kBackups = @"backups";
 
 
 @implementation BMCommand
@@ -26,10 +28,10 @@ static NSString * const kMessage = @"message";
 + (instancetype)errorCommandWithError:(NSError *)error {
     NSDictionary *payload = @{NSStringFromSelector(@selector(domain)): error.domain,
                               NSStringFromSelector(@selector(code)): @(error.code),
-                              NSStringFromSelector(@selector(userInfo)): error.userInfo};
+                              kMessage: error.localizedDescription};
     
     return [[[self class]alloc]initWithName:BMCommandError
-                                       from:kServer
+                                       from:BMConstantsDisplayName
                                     payload:payload];
 }
 
@@ -38,10 +40,24 @@ static NSString * const kMessage = @"message";
     NSDictionary *payload = @{kMessage: message ?: @""};
     
     return [[[self class]alloc]initWithName:BMCommandSuccess
-                                       from:kServer
+                                       from:BMConstantsDisplayName
                                     payload:payload];
 }
 
+
++ (instancetype)backupsListResponseCommandWithBackups:(NSArray <BMBackup *> *)backups {
+    NSMutableArray *backupDictionaries = [NSMutableArray arrayWithCapacity:backups.count];
+    
+    for (BMBackup *backup in backups) {
+        [backupDictionaries addObject:[backup dictionary]];
+    }
+    
+    NSDictionary *payload = @{kBackups: backupDictionaries};
+    
+    return [[[self class]alloc]initWithName:BMCommandBackupsListResponse
+                                       from:BMConstantsDisplayName
+                                    payload:payload];
+}
 
 
 - (instancetype)initWithName:(NSString *)name

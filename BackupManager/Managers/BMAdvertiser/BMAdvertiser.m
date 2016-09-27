@@ -8,6 +8,9 @@
 #import "MCSession+Utilities.h"
 #import "BMCommand.h"
 #import "BMBackupStorage.h"
+#import "BMBackup+CoreDataProperties.h"
+#import "BMConstants.h"
+#import "NSError+Errors.h"
 
 
 static NSString * const kServiceType = @"vis-backup";
@@ -68,9 +71,11 @@ static NSString * const kServiceType = @"vis-backup";
         [self stop];
     }
     
+    MCSession *session = [MCSession sessionWithDelegate:self displayName:BMConstantsDisplayName];
+    
     self.advertiser = [[MCAdvertiserAssistant alloc]initWithServiceType:kServiceType
                                                           discoveryInfo:nil
-                                                                session:[MCSession sessionWithDelegate:self]];
+                                                                session:session];
     [_advertiser start];
     
     NSLog(@"%@: STARTED", NSStringFromClass([self class]));
@@ -167,7 +172,7 @@ static NSString * const kServiceType = @"vis-backup";
             [self sendError:error toPeers:@[peerID]];
         }
         else {
-            [self sendSuccessWithMessage:@"Backup has been successfully saved" toPeers:@[peerID]];
+            [self sendSuccessWithMessage:@"Backup has been successfully saved." toPeers:@[peerID]];
         }
     }
 }
@@ -180,47 +185,32 @@ static NSString * const kServiceType = @"vis-backup";
            withSession:(MCSession *)session
               fromPeer:(MCPeerID *)peer {
     if ([command.name isEqualToString:BMCommandBackupsListRequest]) {
-        //        NSString *backupDirectoryPath = [self backupDirectoryPath];
-        //
-        //        NSArray<NSString *> *files = [[NSFileManager defaultManager]contentsOfDirectoryAtPath:backupDirectoryPath
-        //                                                                                        error:nil];
-        //
-        //        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self BEGINSWITH 'backup'"];
-        //        files = [files filteredArrayUsingPredicate:predicate];
-        //
-        //        NSMutableArray *filesInfo = [NSMutableArray arrayWithCapacity:files.count];
-        //
-        //        for (NSString *fileName in files) {
-        //            BBSFileInfo *info = [[BBSFileInfo alloc]initWithPath:[backupDirectoryPath stringByAppendingPathComponent:fileName]];
-        //
-        //            if (info) {
-        //                [filesInfo addObject:info];
-        //            }
-        //        }
-        //
-        //        BBSCommand *command = [BBSCommand backupsListResponseCommandWithFiles:filesInfo];
-        //
-        //        NSError *error = nil;
-        //
-        //        [_advertiser.session sendData:[command data]
-        //                              toPeers:_advertiser.session.connectedPeers
-        //                             withMode:MCSessionSendDataReliable
-        //                                error:&error];
-        //        if (error) {
-        //            NSLog(@"ADVERTISER: SEND BACKUP LIST RESPONSE ERROR: %@", error.localizedDescription);
-        //        }
+        NSArray <BMBackup *> *backups = [BMBackupStorage backupsForUser:command.from];
+        BMCommand *command = [BMCommand backupsListResponseCommandWithBackups:backups];
+        [self sendData:[command data] toPeers:@[peer]];
     }
     else if ([command.name isEqualToString:BMCommandRequestBackup]) {
-        //        BBSFileInfo *fileInfo = (BBSFileInfo *)command.payload;
-        //
-        //        [_advertiser.session sendResourceAtURL:[NSURL fileURLWithPath:fileInfo.path]
-        //                                      withName:fileInfo.name
-        //                                        toPeer:_advertiser.session.connectedPeers.firstObject
-        //                         withCompletionHandler:^(NSError * _Nullable error) {
-        //                             if (error) {
-        //                                 NSLog(@"ADVERTISER: BACKUP SENDING ERROR: %@", error.localizedDescription);
-        //                             }
-        //                         }];
+        NSString *uuid = command.payload[NSStringFromSelector(@selector(uuid))];
+        BMBackup *backup = [BMBackupStorage backupWithUUID:uuid];
+        
+        if (backup) {
+            __typeof (self) __weak weakSelf = self;
+            
+            [_advertiser.session sendResourceAtURL:[NSURL fileURLWithPath:backup.path]
+                                          withName:backup.name
+                                            toPeer:peer
+                             withCompletionHandler:^(NSError * _Nullable error) {
+                                 if (error) {
+                                     [weakSelf sendError:error toPeers:@[peer]];
+                                 }
+                                 else {
+                                     [weakSelf sendSuccessWithMessage:@"Backup has been successfully sent." toPeers:@[peer]];
+                                 }
+                             }];
+        }
+        else {
+            [self sendError:[NSError backupNotFoundError] toPeers:@[peer]];
+        }
     }
 }
 

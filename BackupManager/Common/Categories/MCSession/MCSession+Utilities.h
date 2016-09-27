@@ -9,8 +9,9 @@
 
 @interface MCSession (Utilities)
 
-+ (MCSession *)sessionWithDelegate:(id<MCSessionDelegate>)delegate;
++ (MCSession *)sessionWithDelegate:(id<MCSessionDelegate>)delegate
+                       displayName:(NSString *)displayName;
+
 + (NSString *)stringWithSessionState:(MCSessionState)state;
-+ (UIColor *)colorWithSessionState:(MCSessionState)state;
 
 @end
