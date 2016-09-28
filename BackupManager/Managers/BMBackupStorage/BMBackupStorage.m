@@ -64,7 +64,9 @@
         return;
     }
     
-    NSString *filePath = [userDirectoryPath stringByAppendingPathComponent:resourceName];
+    NSString *uuidStr = [[NSUUID UUID]UUIDString];
+    NSString *fileName = [NSString stringWithFormat:@"%@_%@", uuidStr, resourceName];
+    NSString *filePath = [userDirectoryPath stringByAppendingPathComponent:fileName];
     
     if ([fileManager fileExistsAtPath:filePath]) {
         [fileManager removeItemAtPath:filePath error:nil];
@@ -80,7 +82,7 @@
     
     [MagicalRecord saveWithBlock:^(NSManagedObjectContext * _Nonnull localContext) {
         BMBackup *backup = [BMBackup MR_createEntityInContext:localContext];
-        backup.uuid = [[NSUUID UUID]UUIDString];
+        backup.uuid = uuidStr;
         backup.name = resourceName;
         backup.path = filePath;
         backup.date = [NSDate date];
@@ -128,8 +130,8 @@
 
 
 + (NSString *)backupsDirectoryPath {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    return [paths.firstObject stringByAppendingPathComponent:@"Backups"];
+    NSURL *documentDirectoryURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    return [documentDirectoryURL.path stringByAppendingPathComponent:@"Backups"];
 }
 
 @end
