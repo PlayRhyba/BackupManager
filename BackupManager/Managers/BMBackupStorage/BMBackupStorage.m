@@ -120,6 +120,12 @@
 
 
 + (void)setup {
+#if TARGET_IPHONE_SIMULATOR
+    NSLog(@"%@: Documents Directory path: %@",
+          NSStringFromClass([self class]),
+          [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask].lastObject);
+#endif
+    
     [MagicalRecord setupCoreDataStack];
 }
 

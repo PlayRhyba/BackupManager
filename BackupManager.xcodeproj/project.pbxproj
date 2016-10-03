@@ -14,6 +14,7 @@
 		C747CB371D9AB2B200E5A49B /* MCSession+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = C747CB331D9AB2B200E5A49B /* MCSession+Utilities.m */; };
 		C747CB381D9AB2B200E5A49B /* NSDate+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = C747CB361D9AB2B200E5A49B /* NSDate+Additions.m */; };
 		C747CB3C1D9AB7A200E5A49B /* NSError+Errors.m in Sources */ = {isa = PBXBuildFile; fileRef = C747CB3B1D9AB7A200E5A49B /* NSError+Errors.m */; };
+		C789241F1DA27B2E00BAA2D9 /* UIApplication+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = C789241E1DA27B2E00BAA2D9 /* UIApplication+Utilities.m */; };
 		C7DE7BC91D994FD5000F68CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DE7BC81D994FD5000F68CA /* main.m */; };
 		C7DE7BCC1D994FD5000F68CA /* BMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DE7BCB1D994FD5000F68CA /* BMAppDelegate.m */; };
 		C7DE7BD51D994FD5000F68CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DE7BD31D994FD5000F68CA /* Main.storyboard */; };
@@ -44,6 +45,8 @@
 		C747CB361D9AB2B200E5A49B /* NSDate+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Additions.m"; sourceTree = "<group>"; };
 		C747CB3A1D9AB7A200E5A49B /* NSError+Errors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+Errors.h"; sourceTree = "<group>"; };
 		C747CB3B1D9AB7A200E5A49B /* NSError+Errors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+Errors.m"; sourceTree = "<group>"; };
+		C789241D1DA27B2E00BAA2D9 /* UIApplication+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Utilities.h"; sourceTree = "<group>"; };
+		C789241E1DA27B2E00BAA2D9 /* UIApplication+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Utilities.m"; sourceTree = "<group>"; };
 		C7DE7BC41D994FD5000F68CA /* BackupManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BackupManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DE7BC81D994FD5000F68CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C7DE7BCA1D994FD5000F68CA /* BMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMAppDelegate.h; sourceTree = "<group>"; };
@@ -141,6 +144,8 @@
 			children = (
 				C747CB3A1D9AB7A200E5A49B /* NSError+Errors.h */,
 				C747CB3B1D9AB7A200E5A49B /* NSError+Errors.m */,
+				C789241D1DA27B2E00BAA2D9 /* UIApplication+Utilities.h */,
+				C789241E1DA27B2E00BAA2D9 /* UIApplication+Utilities.m */,
 			);
 			path = NSError;
 			sourceTree = "<group>";
@@ -371,6 +376,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				117B51581D99A90500BA15C7 /* BMMulticastSender.m in Sources */,
+				C789241F1DA27B2E00BAA2D9 /* UIApplication+Utilities.m in Sources */,
 				C7DE7BE71D9956CA000F68CA /* BMBackupsViewController.m in Sources */,
 				C7DE7BF91D995BB3000F68CA /* BMBackup+CoreDataProperties.m in Sources */,
 				C747CB381D9AB2B200E5A49B /* NSDate+Additions.m in Sources */,

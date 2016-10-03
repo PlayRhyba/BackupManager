@@ -11,6 +11,7 @@
 #import "BMBackup+CoreDataProperties.h"
 #import "BMConstants.h"
 #import "NSError+Errors.h"
+#import "UIApplication+Utilities.h"
 
 
 static NSString * const kServiceType = @"vis-backup";
@@ -150,6 +151,8 @@ static NSString * const kServiceType = @"vis-backup";
                            fromPeer:(MCPeerID *)peerID
                        withProgress:(NSProgress *)progress {
     NSLog(@"%@: START RECEIVING RESOURCE WITH NAME: %@", NSStringFromClass([self class]), resourceName);
+    
+    [UIApplication disableIdleTimer];
 }
 
 
@@ -175,6 +178,8 @@ static NSString * const kServiceType = @"vis-backup";
             [self sendSuccessWithMessage:@"Backup has been successfully saved." toPeers:@[peerID]];
         }
     }
+    
+    [UIApplication enableIdleTimer];
 }
 
 
@@ -194,6 +199,8 @@ static NSString * const kServiceType = @"vis-backup";
         BMBackup *backup = [BMBackupStorage backupWithUUID:uuid];
         
         if (backup) {
+            [UIApplication disableIdleTimer];
+            
             __typeof (self) __weak weakSelf = self;
             
             [_advertiser.session sendResourceAtURL:[NSURL fileURLWithPath:backup.path]
@@ -206,6 +213,8 @@ static NSString * const kServiceType = @"vis-backup";
                                  else {
                                      [weakSelf sendSuccessWithMessage:@"Backup has been successfully sent." toPeers:@[peer]];
                                  }
+                                 
+                                 [UIApplication enableIdleTimer];
                              }];
         }
         else {

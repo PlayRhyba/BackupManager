@@ -77,9 +77,8 @@
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"_cell"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     BMBackup *backup = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = backup.name;
