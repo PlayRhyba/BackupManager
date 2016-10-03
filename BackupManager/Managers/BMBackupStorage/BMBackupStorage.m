@@ -7,13 +7,16 @@
 #import "BMBackupStorage.h"
 #import <MagicalRecord/MagicalRecord.h>
 #import "BMBackup+CoreDataProperties.h"
+#import "NSString+Paths.h"
+
+
+static NSString * const kBackupsDirectory = @"Backups";
 
 
 @interface BMBackupStorage ()
 
 + (void)setup;
 + (void)teardown;
-+ (NSString *)backupsDirectoryPath;
 
 @end
 
@@ -50,7 +53,8 @@
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
-    NSString *userDirectoryPath = [[self backupsDirectoryPath]stringByAppendingPathComponent:user];
+    NSString *userDirectoryPathComponent = [kBackupsDirectory stringByAppendingPathComponent:user];
+    NSString *userDirectoryPath = [[NSString documentsDirectoryPath]stringByAppendingPathComponent:userDirectoryPathComponent];
     
     if ([fileManager fileExistsAtPath:userDirectoryPath] == NO) {
         [fileManager createDirectoryAtPath:userDirectoryPath
@@ -66,6 +70,7 @@
     
     NSString *uuidStr = [[NSUUID UUID]UUIDString];
     NSString *fileName = [NSString stringWithFormat:@"%@_%@", uuidStr, resourceName];
+    NSString *filePathComponent = [userDirectoryPathComponent stringByAppendingPathComponent:fileName];
     NSString *filePath = [userDirectoryPath stringByAppendingPathComponent:fileName];
     
     if ([fileManager fileExistsAtPath:filePath]) {
@@ -84,7 +89,7 @@
         BMBackup *backup = [BMBackup MR_createEntityInContext:localContext];
         backup.uuid = uuidStr;
         backup.name = resourceName;
-        backup.path = filePath;
+        backup.path = filePathComponent;
         backup.date = [NSDate date];
         backup.user = user;
     }];
@@ -92,7 +97,9 @@
 
 
 + (void)removeBackup:(BMBackup *)backup error:(NSError *__autoreleasing *)error {
-    if ([[NSFileManager defaultManager]removeItemAtPath:backup.path error:error]) {
+    NSString *filePath = [[NSString documentsDirectoryPath]stringByAppendingPathComponent:backup.path];
+    
+    if ([[NSFileManager defaultManager]removeItemAtPath:filePath error:error]) {
         [MagicalRecord saveWithBlock:^(NSManagedObjectContext * _Nonnull localContext) {
             [backup MR_deleteEntityInContext:localContext];
         }];
@@ -121,9 +128,9 @@
 
 + (void)setup {
 #if TARGET_IPHONE_SIMULATOR
-    NSLog(@"%@: Documents Directory path: %@",
+    NSLog(@"%@: DOCUMENTS DIRECTORY PATH: %@",
           NSStringFromClass([self class]),
-          [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask].lastObject);
+          [NSString documentsDirectoryPath]);
 #endif
     
     [MagicalRecord setupCoreDataStack];
@@ -132,12 +139,6 @@
 
 + (void)teardown {
     [MagicalRecord cleanUp];
-}
-
-
-+ (NSString *)backupsDirectoryPath {
-    NSURL *documentDirectoryURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-    return [documentDirectoryURL.path stringByAppendingPathComponent:@"Backups"];
 }
 
 @end

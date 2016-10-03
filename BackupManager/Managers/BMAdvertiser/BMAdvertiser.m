@@ -12,6 +12,7 @@
 #import "BMConstants.h"
 #import "NSError+Errors.h"
 #import "UIApplication+Utilities.h"
+#import "NSString+Paths.h"
 
 
 static NSString * const kServiceType = @"vis-backup";
@@ -201,9 +202,11 @@ static NSString * const kServiceType = @"vis-backup";
         if (backup) {
             [UIApplication disableIdleTimer];
             
+            NSString *filePath = [[NSString documentsDirectoryPath]stringByAppendingPathComponent:backup.path];
+            
             __typeof (self) __weak weakSelf = self;
             
-            [_advertiser.session sendResourceAtURL:[NSURL fileURLWithPath:backup.path]
+            [_advertiser.session sendResourceAtURL:[NSURL fileURLWithPath:filePath]
                                           withName:backup.name
                                             toPeer:peer
                              withCompletionHandler:^(NSError * _Nullable error) {

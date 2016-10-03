@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		113902541DA2FFDC001146F2 /* NSString+Paths.m in Sources */ = {isa = PBXBuildFile; fileRef = 113902531DA2FFDC001146F2 /* NSString+Paths.m */; };
 		117B51581D99A90500BA15C7 /* BMMulticastSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 117B51571D99A90500BA15C7 /* BMMulticastSender.m */; };
 		117B515C1D99AA0A00BA15C7 /* BMAdvertiser.m in Sources */ = {isa = PBXBuildFile; fileRef = 117B515B1D99AA0A00BA15C7 /* BMAdvertiser.m */; };
 		117B515F1D99AA7200BA15C7 /* BMCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 117B515E1D99AA7200BA15C7 /* BMCommand.m */; };
@@ -30,6 +31,8 @@
 
 /* Begin PBXFileReference section */
 		0DA02BABF6495BB95845DDD8 /* Pods-BackupManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackupManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BackupManager/Pods-BackupManager.debug.xcconfig"; sourceTree = "<group>"; };
+		113902521DA2FFDC001146F2 /* NSString+Paths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Paths.h"; sourceTree = "<group>"; };
+		113902531DA2FFDC001146F2 /* NSString+Paths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Paths.m"; sourceTree = "<group>"; };
 		117B51561D99A90500BA15C7 /* BMMulticastSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMMulticastSender.h; sourceTree = "<group>"; };
 		117B51571D99A90500BA15C7 /* BMMulticastSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMMulticastSender.m; sourceTree = "<group>"; };
 		117B515A1D99AA0A00BA15C7 /* BMAdvertiser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAdvertiser.h; sourceTree = "<group>"; };
@@ -80,6 +83,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		113902511DA2FFBF001146F2 /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				113902521DA2FFDC001146F2 /* NSString+Paths.h */,
+				113902531DA2FFDC001146F2 /* NSString+Paths.m */,
+			);
+			path = NSString;
+			sourceTree = "<group>";
+		};
 		117B51541D99A8F000BA15C7 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +106,7 @@
 		117B51551D99A8F000BA15C7 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				113902511DA2FFBF001146F2 /* NSString */,
 				C747CB391D9AB78B00E5A49B /* NSError */,
 				C747CB311D9AB2B200E5A49B /* MCSession */,
 				C747CB341D9AB2B200E5A49B /* NSDate */,
@@ -389,6 +402,7 @@
 				C747CB3C1D9AB7A200E5A49B /* NSError+Errors.m in Sources */,
 				C7DE7BC91D994FD5000F68CA /* main.m in Sources */,
 				C7DE7BFF1D996073000F68CA /* BMBackupStorage.m in Sources */,
+				113902541DA2FFDC001146F2 /* NSString+Paths.m in Sources */,
 				C7DE7BED1D995820000F68CA /* Backup.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
