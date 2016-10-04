@@ -23,7 +23,7 @@ NSString * const NSError_Errors_InternalErrorDomain = @"NSError_Errors_InternalE
 + (NSError *)backupNotFoundError {
     return [NSError errorWithDomain:NSError_Errors_InternalErrorDomain
                                code:NSError_Errors_BackupNotFoundErrorCode
-                           userInfo:@{NSLocalizedDescriptionKey: @"Backup has not been found."}];
+                           userInfo:@{NSLocalizedDescriptionKey: @"Backup hasn't been found."}];
 }
 
 @end
