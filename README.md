@@ -11,18 +11,18 @@ Backups is transferred as files (resources). The backup file is a zip archive co
 The rest communication between server and client is implemented as transferring of binary data with commands. Command is represented by JSON with specific format. Currently the following commands are used:
 
 Request for backups list:
-```
+```js
 {
    "name": "BMCommandBackupsListRequest",
-   "from": “username”,
+   "from": "username",
    "payload": {}
 }
 ```
 Response with list of backups:
-```
+```js
 {
-   "name": "BMCommandBackupsListResponse”,
-   "from": “BackupManager",
+   "name": "BMCommandBackupsListResponse",
+   "from": "BackupManager",
    "payload": {
       "backups": [
          {
@@ -37,19 +37,19 @@ Response with list of backups:
 }
 ```
 Requesting for backup:
-```
+```js
 {
-   "name": "BMCommandRequestBackup”,
-   "from": “username",
+   "name": "BMCommandRequestBackup",
+   "from": "username",
    "payload": {
       "uuid": "3D4503DA-7D05-4672-B3BC-0916DEC4C6AA"
    },
 }
 ```
 Success notification:
-```
+```js
 {
-   "name": "BMCommandSuccess”,
+   "name": "BMCommandSuccess",
    "from": "BackupManager"
    "payload": {
       "message": "Backup has been successfully sent."
@@ -57,10 +57,10 @@ Success notification:
 }
 ```
 Error notification:
-```
+```js
 {
-   "name": "BMCommandError”,
-   "from": “BackupManager",
+   "name": "BMCommandError",
+   "from": "BackupManager",
    "payload": {
       "code": 5001,
       "message": "Backup hasn't been found.",
