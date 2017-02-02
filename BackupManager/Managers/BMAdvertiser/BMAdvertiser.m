@@ -122,6 +122,8 @@ static NSString * const kServiceType = @"vis-backup";
     BMCommand *command = [[BMCommand alloc]initWithData:data];
     
     if (command) {
+        NSLog(@"RECEIVED COMMAND STRING: %@", [[NSString alloc]initWithData:[command data] encoding:NSUTF8StringEncoding]);
+        
         [self processCommand:command withSession:session fromPeer:peerID];
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -229,6 +231,8 @@ static NSString * const kServiceType = @"vis-backup";
 
 - (void)sendData:(NSData *)data toPeers:(NSArray <MCPeerID *> *)peers {
     NSError *error = nil;
+    
+    NSLog(@"SENT COMMAND STRING: %@", [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
     
     [_advertiser.session sendData:data
                           toPeers:peers
